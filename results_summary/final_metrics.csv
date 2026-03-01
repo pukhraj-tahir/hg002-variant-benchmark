@@ -1,0 +1,5 @@
+Tool,Variant,Recall,Precision,F1
+Clair3,SNP,0.559,0.832,0.669
+Clair3,INDEL,0.406,0.512,0.453
+DeepVariant,SNP,0.394,0.864,0.542
+DeepVariant,INDEL,0.307,0.763,0.438

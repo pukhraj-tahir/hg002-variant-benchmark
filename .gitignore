@@ -1,0 +1,13 @@
+.nextflow/
+.nextflow.log*
+work/
+nf_work/
+*.sif
+*.bam
+*.bai
+*.fa
+*.fai
+*.vcf.gz
+*.vcf
+*.tbi
+FETCH_HEAD

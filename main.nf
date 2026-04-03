@@ -1,51 +1,42 @@
-params.base = "/hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline"
+nextflow.enable.dsl = 2
 
-process HAPPY_CLAIR3 {
-    tag "Benchmark Clair3"
-    input:
-        val vcf
-        val ref
-    script:
-    """
-    mkdir -p ${params.base}/benchmark/clair3_results
-    singularity exec \
-        --bind ${params.base} \
-        ${params.base}/containers/hap.py_latest.sif \
-        /opt/hap.py/bin/hap.py \
-        ${params.base}/benchmark/truth/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz \
-        ${vcf} \
-        -f ${params.base}/benchmark/truth/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed \
-        -r ${ref} \
-        -o ${params.base}/benchmark/clair3_results/clair3 \
-        --threads 8
-    """
-}
-
-process HAPPY_DEEPVARIANT {
-    tag "Benchmark DeepVariant"
-    input:
-        val vcf
-        val ref
-    script:
-    """
-    mkdir -p ${params.base}/benchmark/deepvariant_results
-    singularity exec \
-        --bind ${params.base} \
-        ${params.base}/containers/hap.py_latest.sif \
-        /opt/hap.py/bin/hap.py \
-        ${params.base}/benchmark/truth/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz \
-        ${vcf} \
-        -f ${params.base}/benchmark/truth/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed \
-        -r ${ref} \
-        -o ${params.base}/benchmark/deepvariant_results/deepvariant \
-        --threads 8
-    """
-}
+include { CLAIR3                } from './modules/clair3'
+include { DEEPVARIANT           } from './modules/deepvariant'
+include { HAPPY as HAPPY_CLAIR3 } from './modules/happy'
+include { HAPPY as HAPPY_DV    } from './modules/happy'
 
 workflow {
-    ref             = "${params.base}/data/GRCh38.primary_assembly.genome.fa"
-    clair3_vcf      = "${params.base}/results/clair3/merge_output.vcf.gz"
-    deepvariant_vcf = "${params.base}/results/deepvariant.vcf.gz"
-    HAPPY_CLAIR3(clair3_vcf, ref)
-    HAPPY_DEEPVARIANT(deepvariant_vcf, ref)
+
+    log.info """
+    ================================================
+     HG002 Variant Calling & Benchmarking Pipeline
+     Nextflow DSL2 + SLURM + Singularity
+    ================================================
+     BAM      : ${params.bam}
+     Ref      : ${params.ref}
+     Truth VCF: ${params.truth_vcf}
+     Output   : ${params.outdir}
+    ================================================
+    """.stripIndent()
+
+    bam       = file(params.bam,                checkIfExists: true)
+    bai       = file("${params.bam}.bai",       checkIfExists: true)
+    ref       = file(params.ref,                checkIfExists: true)
+    ref_fai   = file("${params.ref}.fai",       checkIfExists: true)
+    truth_vcf = file(params.truth_vcf,          checkIfExists: true)
+    truth_tbi = file("${params.truth_vcf}.tbi", checkIfExists: true)
+    truth_bed = file(params.truth_bed,          checkIfExists: true)
+
+    // Clair3 and DeepVariant run IN PARALLEL automatically
+    CLAIR3(bam, bai, ref, ref_fai)
+    DEEPVARIANT(bam, bai, ref, ref_fai)
+
+    // Benchmark each caller against GIAB truth set
+    HAPPY_CLAIR3("clair3",
+          CLAIR3.out.vcf,      CLAIR3.out.tbi,
+          truth_vcf, truth_tbi, truth_bed, ref, ref_fai)
+
+    HAPPY_DV("deepvariant",
+          DEEPVARIANT.out.vcf, DEEPVARIANT.out.tbi,
+          truth_vcf, truth_tbi, truth_bed, ref, ref_fai)
 }

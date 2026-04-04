@@ -1,0 +1,123 @@
+Apr-04 02:01:32.576 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -with-report report.html
+Apr-04 02:01:32.732 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+Apr-04 02:01:32.799 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/opt/nextflow_framework/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+Apr-04 02:01:32.860 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Apr-04 02:01:32.861 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Apr-04 02:01:32.866 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Apr-04 02:01:32.895 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Apr-04 02:01:33.229 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Apr-04 02:01:33.281 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/nextflow.config
+Apr-04 02:01:33.285 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/nextflow.config
+Apr-04 02:01:33.327 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Apr-04 02:01:33.939 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Apr-04 02:01:33.940 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Apr-04 02:01:33.959 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /opt/nextflow_framework/secrets/store.json
+Apr-04 02:01:33.963 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@30f74e79] - activable => nextflow.secret.LocalSecretsProvider@30f74e79
+Apr-04 02:01:33.985 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Apr-04 02:01:34.003 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [evil_descartes] DSL2 - revision: 8cb7f7e3df
+Apr-04 02:01:34.058 [main] DEBUG nextflow.Session - Session UUID: d327911e-80ad-4610-8e94-040257f02777
+Apr-04 02:01:34.059 [main] DEBUG nextflow.Session - Run name: evil_descartes
+Apr-04 02:01:34.060 [main] DEBUG nextflow.Session - Executor pool size: 128
+Apr-04 02:01:34.070 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Apr-04 02:01:34.075 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=384; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-04 02:01:34.124 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC (20:17 PKST)
+  System: Linux 4.18.0-553.83.1.el8_10.x86_64
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.18+8-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 1914084@master [10.19.10.150]
+  CPUs: 128 - Mem: 125.7 GB (21.1 GB) - Swap: 4 GB (139.7 MB)
+Apr-04 02:01:34.169 [main] DEBUG nextflow.Session - Work-dir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work [ext2/ext3]
+Apr-04 02:01:34.170 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/bin
+Apr-04 02:01:34.187 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Apr-04 02:01:34.203 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Apr-04 02:01:34.208 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Apr-04 02:01:34.285 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Apr-04 02:01:34.305 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 129; maxThreads: 1000
+Apr-04 02:01:34.473 [main] DEBUG nextflow.Session - Session start
+Apr-04 02:01:34.489 [main] DEBUG nextflow.Session - Report file already exists: report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+nextflow.exception.AbortOperationException: Report file already exists: report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.ReportObserver.onFlowCreate(ReportObserver.groovy:119)
+	at nextflow.Session$_notifyFlowCreate_lambda34.doCall(Session.groovy:1107)
+	at nextflow.Session.notifyEvent(Session.groovy:1151)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1107)
+	at nextflow.Session.start(Session.groovy:596)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:429)
+	at nextflow.cli.Launcher.run(Launcher.groovy:515)
+	at nextflow.cli.Launcher.main(Launcher.groovy:675)
+Apr-04 02:01:34.833 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Apr-04 02:01:34.972 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Apr-04 02:01:34.972 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Apr-04 02:01:34.996 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Apr-04 02:01:35.007 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
+Apr-04 02:01:35.010 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Apr-04 02:01:35.013 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Apr-04 02:01:35.055 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'HAPPY_CLAIR3': maxForks=0; fair=false; array=0
+Apr-04 02:01:35.169 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Apr-04 02:01:35.170 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Apr-04 02:01:35.173 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'HAPPY_DEEPVARIANT': maxForks=0; fair=false; array=0
+Apr-04 02:01:35.179 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: HAPPY_DEEPVARIANT, HAPPY_CLAIR3
+Apr-04 02:01:35.183 [main] DEBUG nextflow.Session - Igniting dataflow network (2)
+Apr-04 02:01:35.184 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > HAPPY_CLAIR3
+Apr-04 02:01:35.185 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > HAPPY_DEEPVARIANT
+Apr-04 02:01:35.187 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_3521418c8af24387: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/main.nf
+Apr-04 02:01:35.187 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Apr-04 02:01:35.187 [main] DEBUG nextflow.Session - Session await
+Apr-04 02:01:35.540 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process HAPPY_CLAIR3 (Benchmark Clair3) > jobId: 3117; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/58/86634916c5f58c3e93e8f7919da7d5
+Apr-04 02:01:35.541 [Task submitter] INFO  nextflow.Session - [58/866349] Submitted process > HAPPY_CLAIR3 (Benchmark Clair3)
+Apr-04 02:01:35.582 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process HAPPY_DEEPVARIANT (Benchmark DeepVariant) > jobId: 3118; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/f0/63d31ac7ead478eae3f1fd15609644
+Apr-04 02:01:35.583 [Task submitter] INFO  nextflow.Session - [f0/63d31a] Submitted process > HAPPY_DEEPVARIANT (Benchmark DeepVariant)
+Apr-04 02:06:40.030 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 3117; id: 1; name: HAPPY_CLAIR3 (Benchmark Clair3); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/58/86634916c5f58c3e93e8f7919da7d5 started: 1775250125023; exited: -; ]
+~> TaskHandler[jobId: 3118; id: 2; name: HAPPY_DEEPVARIANT (Benchmark DeepVariant); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/f0/63d31ac7ead478eae3f1fd15609644 started: 1775250125029; exited: -; ]
+Apr-04 02:11:40.048 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 3117; id: 1; name: HAPPY_CLAIR3 (Benchmark Clair3); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/58/86634916c5f58c3e93e8f7919da7d5 started: 1775250125023; exited: -; ]
+~> TaskHandler[jobId: 3118; id: 2; name: HAPPY_DEEPVARIANT (Benchmark DeepVariant); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/f0/63d31ac7ead478eae3f1fd15609644 started: 1775250125029; exited: -; ]
+Apr-04 02:16:40.067 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 3117; id: 1; name: HAPPY_CLAIR3 (Benchmark Clair3); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/58/86634916c5f58c3e93e8f7919da7d5 started: 1775250125023; exited: -; ]
+~> TaskHandler[jobId: 3118; id: 2; name: HAPPY_DEEPVARIANT (Benchmark DeepVariant); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/f0/63d31ac7ead478eae3f1fd15609644 started: 1775250125029; exited: -; ]
+Apr-04 02:21:40.088 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 3117; id: 1; name: HAPPY_CLAIR3 (Benchmark Clair3); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/58/86634916c5f58c3e93e8f7919da7d5 started: 1775250125023; exited: -; ]
+~> TaskHandler[jobId: 3118; id: 2; name: HAPPY_DEEPVARIANT (Benchmark DeepVariant); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/f0/63d31ac7ead478eae3f1fd15609644 started: 1775250125029; exited: -; ]
+Apr-04 02:25:00.101 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3118; id: 2; name: HAPPY_DEEPVARIANT (Benchmark DeepVariant); status: COMPLETED; exit: 0; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/f0/63d31ac7ead478eae3f1fd15609644 started: 1775250125029; exited: 2026-04-03T21:24:57.920153074Z; ]
+Apr-04 02:25:00.103 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=384; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-04 02:26:40.100 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 3117; id: 1; name: HAPPY_CLAIR3 (Benchmark Clair3); status: RUNNING; exit: -; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/58/86634916c5f58c3e93e8f7919da7d5 started: 1775250125023; exited: -; ]
+Apr-04 02:28:05.104 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 3117; id: 1; name: HAPPY_CLAIR3 (Benchmark Clair3); status: COMPLETED; exit: 0; error: -; workDir: /hdd4/sines/specialtopicsinbioinformatics/pukhraj.sines/hg002_variant_pipeline/work/58/86634916c5f58c3e93e8f7919da7d5 started: 1775250125023; exited: 2026-04-03T21:28:00.875767994Z; ]
+Apr-04 02:28:05.109 [main] DEBUG nextflow.Session - Session await > all processes finished
+Apr-04 02:28:10.105 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Apr-04 02:28:10.106 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Apr-04 02:28:10.112 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Apr-04 02:28:10.123 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=2; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=6h 31m 31s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=16; peakMemory=32 GB; ]
+Apr-04 02:28:10.317 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Apr-04 02:28:11.305 [main] WARN  nextflow.trace.ReportObserver - Failed to render execution report -- see the log file for details
+nextflow.exception.AbortOperationException: Report file already exists: report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:67)
+	at nextflow.trace.ReportObserver.renderHtml(ReportObserver.groovy:243)
+	at nextflow.trace.ReportObserver.onFlowComplete(ReportObserver.groovy:129)
+	at nextflow.Session$_notifyFlowComplete_lambda39.doCall(Session.groovy:1121)
+	at nextflow.Session.notifyEvent(Session.groovy:1151)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1121)
+	at nextflow.Session.shutdown0(Session.groovy:779)
+	at nextflow.Session.destroy(Session.groovy:724)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:429)
+	at nextflow.cli.Launcher.run(Launcher.groovy:515)
+	at nextflow.cli.Launcher.main(Launcher.groovy:675)
+Caused by: java.nio.file.FileAlreadyExistsException: report.html
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:218)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:484)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3008)
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:64)
+	... 12 common frames omitted
+Apr-04 02:28:11.316 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Apr-04 02:28:11.343 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Apr-04 02:28:11.343 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
